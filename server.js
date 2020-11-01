@@ -1,11 +1,19 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
-const secretKey = "difjdij5tjifivj84";
+const bodyParser = require("body-parser"); 
+const { verifyToken, createToken } = require('./utils/utils')
+const router = express.Router()
 
-let app = express();
+const app = express();
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+require('dotenv').config()
+
+router.get('/', (req, res)=>{
+  verifyToken(req, res);
+  createToken(req, res); 
+})
 
 app.use((req, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -21,36 +29,8 @@ app.use((req, response, next) => {
   next();
 });
 
-app.get("/", async function (req, res) {
-  let token = req.query.token;
-  if (token) {
-    let decoded;
-    let valid = false;
-    try {
-      jwt.verify(token, secretKey, (err, data) => {
-        decoded = data;
-      });
-    } catch (err) {
-      res.send({ valid });
-    }
-    if (!decoded || decoded.exp < Math.floor(Date.now() / 1000)) {
-      return res.send({ valid: false });
-    }
-    valid = true;
-    return res.send({ valid });
-  }
+app.use('/', router)
 
-  let createToken = req.query.createToken;
-
-  if (!createToken) return res.send("404");
-  if (createToken !== secretKey)
-    return res.send({ createToken: "Invalid key" });
-  if (createToken == secretKey) {
-    const token = jwt.sign({ name: "Corp Inc." }, secretKey, {
-      expiresIn: "7 days",
-    });
-    return res.send({ token });
-  }
+app.listen(process.env.PORT || 5000, ()=>{
+  console.log("Server is up on port: 5000");
 });
-
-app.listen(5000);

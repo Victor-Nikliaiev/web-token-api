@@ -1,10 +1,7 @@
 const fetch = require("node-fetch");
 
-const secret_key = "******";
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ29ycCBJbmMuIiwiaWF0IjoxNjA0MTk3MjA1LCJleHAiOjE2MDQ4MDIwMDV9.eRbEQu-zGx31sKDvVS1Uuhtjv3Sf08LB82MURM1DBBs";
-const verifyTokenUrl = `https://arhis-webtoken-api.herokuapp.com:5000/?token=${token}`;
-const creatTokenUrl = `https://arhis-webtoken-api.herokuapp.com:5000/?createToken=${secret_key}`;
+const verifyTokenUrl = `http://localhost:5000/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ29ycCBJbmMuIiwiaWF0IjoxNjA0MTk3MjA1LCJleHAiOjE2MDQ4MDIwMDV9.eRbEQu-zGx31sKDvVS1Uuhtjv3Sf08LB82MURM1DBBs`;
+const creatTokenUrl = `http://localhost:5000/?createToken=difjdij5tjifivj84`;
 
 class Server {
   async #processRequest(url) {
