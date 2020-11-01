@@ -53,6 +53,4 @@ app.get("/", async function (req, res) {
   }
 });
 
-let server = app.listen(5000, function () {
-  console.log("Server is listening on port 8080");
-});
+app.listen(5000);
