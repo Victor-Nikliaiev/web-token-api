@@ -9,12 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 require('dotenv').config()
-
-router.get('/', (req, res)=>{
-  verifyToken(req, res);
-  createToken(req, res); 
-})
-
+app.use(express.static(__dirname));
 app.use((req, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
   response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -29,7 +24,22 @@ app.use((req, response, next) => {
   next();
 });
 
+router.get('/verify', (req, res)=>{
+  verifyToken(req, res);   
+})
+
+router.get('/create', (req, res)=>{   
+  createToken(req, res); 
+})
+
+app.set('view engine', 'ejs')
 app.use('/', router)
+
+app.use((req, res,next)=>{
+  return res.render('index');
+});
+
+
 
 app.listen(process.env.PORT || 5000, ()=>{
   console.log("Server is up on port: 5000");

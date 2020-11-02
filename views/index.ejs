@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css"
+    />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit-icons.min.js"></script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+    <link href="/css/main.css" rel="stylesheet">
+    <title>WebTokenAPI v1.0</title>
+  </head>
+  <body >
+    <div class="uk-container">  
+    
+     <div class="post-header">
+      <h1>Web Token API</h1>  <div class="hr"></div>     
+    <span class="uk-label uk-label-default"> v1.0</span>     
+      <span class="uk-label uk-label-success">secure</span>
+      <span class="uk-label uk-label-warning">fast</span>
+      <span class="uk-label uk-label-danger">private</span>   
+      <div class="hr"></div> 
+     </div>
+    
+      
+        <header style="margin: 2rem auto; max-width: 50%;" class="uk-comment-header">
+          <div class="uk-grid-medium uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              
+              <article class="uk-comment"></article>
+              <div class="avatar-border">
+                <img class="uk-comment-avatar"
+                src="https://picsum.photos/80"
+                width="80"
+                height="80"
+                alt="" />
+              </div>
+              
+            </div>
+            <div class="uk-width-expand">              
+              <h4 class="uk-comment-title uk-margin-remove">
+                <a class="uk-link-reset" href="https://vk.com/elated_by" target="_new">From author</a>
+                <a href="https://vk.com/elated_by" target="_new" uk-icon="icon: bolt"></a></span>
+              </h4>
+              <ul
+                class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top"
+              >
+                <li>02.10.20</li>
+                <li>    </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        <div class="uk-comment-body">
+          <p>
+            This API can generate a secure web-token that might be used for any of your purposes. And also it verifies if current token is valid.
+          </p>
+          <p style="color: rgb(76, 117, 35); font-weight: 600;">How to use this API?</p>
+          <span><span class="uk-margin-small-right icon" uk-icon="check"></span> First, you must have a given secret key</span><br>
+          <span><span class="uk-margin-small-right icon" uk-icon="check"></span> To check your token just make a GET request to following address:
+          <a target="_new" href="https://arhis-webtoken-api.herokuapp.com/verify?token=YOUR TOKEN">https://arhis-webtoken-api.herokuapp.com/verify?token=YOUR_TOKEN</a></span><br>
+          <span><span class="uk-margin-small-right icon" uk-icon="check"></span>To create a new token just request to <a target="_new" href="https://arhis-webtoken-api.herokuapp.com/create?token=SECRET_KEY&exp=DAYS"> 
+          arhis-webtoken-api.herokuapp.com/create?token=SECRET_KEY&exp=DAYS</a> where SECRET_KEY is your secret key and DAYS is how long days your key will be valid</span><br>
+          
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
